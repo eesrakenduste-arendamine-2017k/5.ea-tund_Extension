@@ -43,3 +43,15 @@ document.getElementsByTagName('body')[0].addEventListener('copy',function(){
 });
 
 firebase.initializeApp(config);
+console.log('loaded');
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://www.postimees.ee/rss", true);
+xhr.onreadystatechange = function() {
+  if (xhr.readyState == 4) {
+    // WARNING! Might be evaluating an evil script!
+    console.log(xhr.responseXML);
+
+  }
+};
+xhr.send();
